@@ -1,0 +1,7 @@
+Erro 001: Realize o procedimento de desligar todos os aparelhos e ligar novamente.
+Erro 002: Faça a solicitação de troca do equipamento.
+
+
+
+
+Meu sistema travou: reinicie o sistema e realize o login novamente.

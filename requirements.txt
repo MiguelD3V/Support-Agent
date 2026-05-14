@@ -1,4 +1,4 @@
-google-generativeai
-chromadb
+google-genai
+chromadb>=0.5.0
 python-dotenv
 PyPDF2
