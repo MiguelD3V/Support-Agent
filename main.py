@@ -29,11 +29,9 @@ def main():
 
         print("Processando sua mensagem...")
 
-        try:
-            resposta = agent.send_message(user_input)
-            print(f"Agente: {resposta}")
-        except Exception as e:
-            print(f"Ocorreu um erro Minha UMED está apresentando erro G999, o que devo fazer?ao processar a mensagem: {e}")
+        resposta = agent.send_message(user_input)
+        print(f"Agente: {resposta}")
+    
 
 if __name__ == "__main__":
     main()
