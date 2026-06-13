@@ -1,4 +1,4 @@
-from .rag_engine import RagEngine
+from src.rag_engine import RagEngine
 
 rag_engine = RagEngine()
 

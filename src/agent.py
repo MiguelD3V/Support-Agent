@@ -1,8 +1,8 @@
-from google import genai
+import google.genai as genai
 from google.genai import types
 import os
 from dotenv import load_dotenv
-from .tools import analise_logs
+from src.tools import analise_logs
 
 load_dotenv()
 
@@ -24,11 +24,11 @@ class Agent:
             "Se o usuário apenas der 'bom dia' ou fizer perguntas gerais, responda normalmente sem usar ferramentas."
             "Após receber o resultado da ferramenta, você NUNCA deve responder com texto livre. "
             "Você deve SEMPRE retornar a sua resposta dividida em duas partes, utilizando EXATAMENTE a estrutura abaixo:\n\n"
-            "🎧 **ROTEIRO DE INSTRUÇÃO PARA O CLIENTE**\n"
+            "**ROTEIRO DE INSTRUÇÃO PARA O CLIENTE**\n"
             "**Erro Identificado:** [Código ou nome do erro]\n"
             "**Resolução Técnica: [Descreva a solução técnica de forma clara e amigável, como se estivesse explicando para um cliente. Ex: 'O erro G999 geralmente indica um problema de comunicação entre a UMED e o servidor. Para resolver isso, siga os passos abaixo...']\n"
             "=======================================\n\n"
-            "📋 **PROTOCOLO PARA REGISTRO NO SISTEMA**\n"
+            "**PROTOCOLO PARA REGISTRO NO SISTEMA**\n"
             "**ANALISE/TESTE:** [Descreva a solução técnica como uma ação que foi orientada ao cliente. Ex: 'Foi instruído ao cliente o desligamento e religamento da UMED...']\n"
             "**CONCLUSÃO:** Procedimento realizado com sucesso. O equipamento voltou a operar normalmente.\n\n"
             "Não adicione nenhuma outra informação fora dessa estrutura."
