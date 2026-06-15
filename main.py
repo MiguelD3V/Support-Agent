@@ -22,19 +22,15 @@ from src.services.message_service import envia_conversa as envia_conversa_servic
 
 from src.tools import rag_engine
 
-# Lifespan handler para inicialização e shutdown
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup
     init_db()
     rag_engine.load_runbooks()
     print("✅ Banco de dados inicializado")
     print("✅ Runbooks carregados")
     yield
-    # Shutdown
     print("🛑 Aplicação encerrada")
 
-# Inicializar FastAPI
 app = FastAPI(
     title="Support Agent API",
     description="API para atendimento técnico com histórico de conversas",
@@ -42,7 +38,6 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Configurar CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -51,7 +46,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Store de agentes em memória (pode ser melhorado com cache)
 _agent_cache = {}
 
 def get_agent():
@@ -62,9 +56,6 @@ def get_agent():
         except ValueError as e:
             raise HTTPException(status_code=500, detail=f"Erro ao inicializar agente: {str(e)}")
     return _agent_cache["agent"]
-
-
-# ==================== ENDPOINTS ====================
 
 @app.get("/")
 def root():
