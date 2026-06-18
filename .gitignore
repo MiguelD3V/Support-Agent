@@ -207,7 +207,6 @@ cython_debug/
 !.vscode/c_cpp_properties.json
 
 # Project specific
-db/
 vector_db/
 *.sqlite3
 *.sqlite 
